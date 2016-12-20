@@ -38,7 +38,7 @@ var CSTasks = (function(){
     };
 
     //takes the document, a collection of objects (e.g. selection, PathItems, GroupItems) and a destination array [x,y]
-    //moves the collection to the specified destination
+    //returns the leftmost and topmost position of all the items as an array [x,y]
     tasks.getCollectionTopLeft = function(doc, collection){
         var tempGroup = tasks.createGroup(doc, collection);
         var pos = tempGroup.position;
@@ -254,16 +254,110 @@ var CSTasks = (function(){
         textRef.textRange.characterAttributes.size = size;
     };
 
-    /***************
-    COLOR CONVERSION
-    ****************/
-
+    /*********
+    RGB Colors
+    **********/
+    //for future, may be better to combine these two sets of functions and use color space as an argument
+    
+    //compares two RGB colors
+    //returns true if they match, false if they do not
+    tasks.matchColorsRGB = function(color1, color2){ //compares two colors to see if they match
+		if (Math.abs(color1.red - color2.red) < 1 &&
+		Math.abs(color1.green - color2.green) < 1 &&
+		Math.abs(color1.blue - color2.blue) < 1) { //can't do equality because it adds very small decimals
+			return true;
+		}
+        return false;
+    };
+    
+    //take a single RGBColor and an array of corresponding RGB and CMYK colors [[RGBColor,CMYKColor],[RGBColor2,CMYKColor2],...]
+    //returns the index in the array if it finds a match, otherwise returns -1
+    tasks.matchToPaletteRGB = function(color, matchArray){ //compares a single color RGB color against RGB colors in [[RGB],[CMYK]] array
+        for (var i = 0; i < matchArray.length; i++){
+            if (Math.abs(color.red - matchArray[i][0].red) < 1 &&
+            Math.abs(color.green - matchArray[i][0].green) < 1 &&
+            Math.abs(color.blue - matchArray[i][0].blue) < 1) { //can't do equality because it adds very small decimals
+                return i;
+            }
+        }
+        return -1;
+    };
+      
+    //takes a collection of pathItems and an array of specified RGB and CMYK colors [[RGBColor,CMYKColor],[RGBColor2,CMYKColor2],...]
+    //returns an array with the values corresponding to the indices of the relevant color in the palette (or -1 if no match)
+    tasks.indexPaletteRGB = function(pathItems, matchArray){
+        var colorIndex = new Array(pathItems.length);
+        for ( i = 0; i < pathItems.length; i++ ) {
+            var itemColor = pathItems[i].fillColor;
+            colorIndex[i] = tasks.matchToPaletteRGB(itemColor, matchArray);
+        }
+        return colorIndex;
+    };
+    
+    //takes a pathItems array, startColor and endColor
+    //converts all pathItems with startColor into endColor
+    tasks.convertColorRGB = function(pathItems, startColor, endColor){
+        for ( i = 0; i < pathItems.length; i++ ) {
+            if (tasks.matchColorsRGB(pathItems[i].fillColor, startColor)) pathItems[i].fillColor = endColor;
+        }
+    };
+    
+ 
+    /**********
+    CMYK Colors
+    ***********/
+    
+    //compares two CMYK colors
+    //returns true if they match, false if they do not
+    tasks.matchColorsCMYK = function(color1, color2){ //compares two colors to see if they match
+		if (Math.abs(color1.cyan - color2.cyan) < 1 &&
+		Math.abs(color1.magenta - color2.magenta) < 1 &&
+		Math.abs(color1.yellow - color2.yellow) < 1 &&
+		Math.abs(color1.black - color2.black) < 1) { //can't do equality because it adds very small decimals
+			return true;
+		}
+        return false;
+    };
+    
+    //take a single CMYKColor and an array of corresponding RGB and CMYK colors [[RGBColor,CMYKColor],[RGBColor2,CMYKColor2],...]
+    //returns the index in the array if it finds a match, otherwise returns -1
+    tasks.matchToPaletteCMYK = function(color, matchArray){ //compares a single color RGB color against RGB colors in [[RGB],[CMYK]] array
+        for (var i = 0; i < matchArray.length; i++){
+            if (Math.abs(color.red - matchArray[i][1].red) < 1 &&
+            Math.abs(color.green - matchArray[i][1].green) < 1 &&
+            Math.abs(color.blue - matchArray[i][1].blue) < 1) { //can't do equality because it adds very small decimals
+                return i;
+            }
+        }
+        return -1;
+    };
+    
+    //takes a collection of pathItems and an array of specified RGB and CMYK colors [[RGBColor,CMYKColor],[RGBColor2,CMYKColor2],...]
+    //returns an array with an index to the CMYK color if it is in the array
+    tasks.indexPaletteCMYK = function(pathItems, matchArray){
+        var colorIndex = new Array(pathItems.length);
+        for ( i = 0; i < pathItems.length; i++ ) {
+            var itemColor = pathItems[i].fillColor;
+            colorIndex[i] = tasks.matchToPaletteCMYK(itemColor, matchArray);
+        }
+        return colorIndex;
+    };
+    
+    //takes a pathItems array, startColor and endColor and converts all pathItems with startColor into endColor
+    tasks.convertColorCMYK = function(pathItems, startColor, endColor){
+        for ( i = 0; i < pathItems.length; i++ ) {
+            if (tasks.matchColorsCMYK(pathItems[i].fillColor, startColor)) pathItems[i].fillColor = endColor;
+        }
+    };
+    
+    /*******************************************************
+    Multiple color spaces or conversion between color spaces
+    *******************************************************/
+    
     //takes two equal-length arrays of corresponding colors [[R,G,B], [R2,G2,B2],...] and [[C,M,Y,K],[C2,M2,Y2,K2],...] (fairly human readable)
     //returns an array of ColorElements [[RGBColor,CMYKColor],[RGBColor2,CMYKColor2],...] (usable by the script for fill colors etc.)
-    tasks.initializeColors = function(RGBArray, CMYKArray){
-
+    tasks.initializeColorPalette = function(RGBArray, CMYKArray){
         var colors = new Array(RGBArray.length);
-        
         for (var i = 0; i < RGBArray.length; i++){
             var rgb = new RGBColor();
             rgb.red = RGBArray[i][0];
@@ -280,59 +374,20 @@ var CSTasks = (function(){
         }
         return colors;
     };
-
-    //take a single RGBColor and an array of corresponding RGB and CMYK colors [[RGBColor,CMYKColor],[RGBColor2,CMYKColor2],...]
-    //returns the index in the array if it finds a match, otherwise returns -1
-    tasks.matchRGB = function(color, matchArray){ //compares a single color RGB color against RGB colors in [[RGB],[CMYK]] array
-        for (var i = 0; i < matchArray.length; i++){
-            if (Math.abs(color.red - matchArray[i][0].red) < 1 &&
-            Math.abs(color.green - matchArray[i][0].green) < 1 &&
-            Math.abs(color.blue - matchArray[i][0].blue) < 1) { //can't do equality because it adds very small decimals
-                return i;
-            }
-        }
-        return -1;
-    };
-
-    //take a single CMYKColor and an array of corresponding RGB and CMYK colors [[RGBColor,CMYKColor],[RGBColor2,CMYKColor2],...]
-    //returns the index in the array if it finds a match, otherwise returns -1
-    tasks.matchCMYK = function(color, matchArray){ //compares a single color RGB color against RGB colors in [[RGB],[CMYK]] array
-        for (var i = 0; i < matchArray.length; i++){
-            if (Math.abs(color.red - matchArray[i][1].red) < 1 &&
-            Math.abs(color.green - matchArray[i][1].green) < 1 &&
-            Math.abs(color.blue - matchArray[i][1].blue) < 1) { //can't do equality because it adds very small decimals
-                return i;
-            }
-        }
-        return -1;
-    };
-
-    //takes a collection of pathItems and an array of specified RGB and CMYK colors [[RGBColor,CMYKColor],[RGBColor2,CMYKColor2],...]
-    //returns an array with an index to the RGB color if it is in the array
-    tasks.indexRGBColors = function(pathItems, matchArray){
-        var colorIndex = new Array(pathItems.length);
-        for ( i = 0; i < pathItems.length; i++ ) {
-            var itemColor = pathItems[i].fillColor;
-            colorIndex[i] = tasks.matchRGB(itemColor, matchArray);
-        }
-        return colorIndex;
-    };
-
-    //takes a collection of pathItems and an array of specified RGB and CMYK colors [[RGBColor,CMYKColor],[RGBColor2,CMYKColor2],...]
-    //returns an array with an index to the CMYK color if it is in the array
-    tasks.indexCMYKColors = function(pathItems, matchArray){
-        var colorIndex = new Array(pathItems.length);
-        for ( i = 0; i < pathItems.length; i++ ) {
-            var itemColor = pathItems[i].fillColor;
-            colorIndex[i] = tasks.matchCMYK(itemColor, matchArray);
-        }
-        return colorIndex;
-    };
     
+    //takes a pathItems array, endColor and opacity and converts all pathItems into endColor at the specified opacity
+    tasks.changeAllToColor = function(pathItems, endColor, opcty){
+         for ( i = 0; i < pathItems.length; i++ ) {
+            pathItems[i].fillColor = endColor;
+            pathItems[i].opacity = opcty;
+        }
+    };
+ 
     //takes a doc, collection of pathItems, an array of specified colors and an array of colorIndices
     //converts the fill colors to the indexed CMYK colors and adds a text box with the unmatched colors
     //Note that this only makes sense if you've previously indexed the same path items and haven't shifted their positions in the pathItems array
-    tasks.convertToCMYK = function(doc, pathItems, colorArray, colorIndex){
+    //This lets you index the colors while they are in a document with RGB color space and do the conversion in a new document in CMYK color space
+    tasks.convertToCMYKPalette = function(doc, pathItems, colorArray, colorIndex){
         var unmatchedColors = [];
         for ( i = 0; i < pathItems.length; i++ ) {
             if (colorIndex[i] >=0 && colorIndex[i] < colorArray.length) pathItems[i].fillColor = colorArray[colorIndex[i]][1];
@@ -359,9 +414,16 @@ var CSTasks = (function(){
             tasks.createTextFrame(doc, unmatchedString, errorMsgPos, 18);
         }
     };
+    
+    //takes a pathItems array, startColor and endColor and converts all pathItems with startColor into endColor
+    tasks.convertColorCMYK = function(pathItems, startColor, endColor){
+        for ( i = 0; i < pathItems.length; i++ ) {
+            if (tasks.matchColorsCMYK(pathItems[i].fillColor, startColor)) pathItems[i].fillColor = endColor;
+        }
+    };
 
     //takes an array
-    //returns a sorted array with only unique elements
+    //returns a sorted array with only unique elements (not strictly color conversion but used in the previous function)
     tasks.unique = function(a) {
         if (a.length > 0){
             sorted =  a.sort();
