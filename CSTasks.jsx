@@ -5,7 +5,7 @@ CSTasks is a set of basic functions for selecting, moving, copying and exporting
 It uses an array [x,y] to indicate the top left corner of an object, collection, artboard, etc., to provide a consistent and
 easy-to-understand frame of reference for moving objects.
 
-It was built with CS6, but I'll have to make sure it also works in CC
+Tested using Creative Cloud 2017
 
 Note that there's some wonkiness around grouping and ungrouping. In general, this scripting gets strange quickly.
 ********/
