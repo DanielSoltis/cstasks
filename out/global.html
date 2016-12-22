@@ -224,7 +224,1231 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="CSTasks.jsx.html">CSTasks.jsx</a>, <a href="CSTasks.jsx.html#line81">line 81</a>
+        <a href="cstasks.jsx.html">cstasks.jsx</a>, <a href="cstasks.jsx.html#line81">line 81</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="colorMatch"><span class="type-signature"></span>colorMatch<span class="signature">(color1, color2, colorspace)</span><span class="type-signature"> &rarr; {boolean}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Compares two colors in the specified colorspace and returns true if they are the same, false if not
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>color1</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">RGBColor</span>
+|
+
+<span class="param-type">CMYKColor</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">First color to compare</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>color2</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">RGBColor</span>
+|
+
+<span class="param-type">CMYKColor</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">First color to compare</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>colorspace</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">DocumentColorSpace</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The desired colorspace: DocumentColorSpace.RGB or DocumentColorSpace.CMYK</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="cstasks.jsx.html">cstasks.jsx</a>, <a href="cstasks.jsx.html#line403">line 403</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    match - True if the colors are the same, false if not
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">boolean</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="colorMatchItemsToPalette"><span class="type-signature"></span>colorMatchItemsToPalette<span class="signature">(pathItems, paletteArray, colorspace)</span><span class="type-signature"> &rarr; {array}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Compares an array of pathItems to a color palette (as created in <a href="global.html#initializeColorPalette">initializeColorPalette</a>) in the specified colorspace. 
+Returns an array with the index of the matching fill color (or -1 if no match) for each pathItem.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>pathItems</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">pathItems</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Array of pathItems</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>paletteArray</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">array</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Color palette as created from <a href="global.html#initializeColorPalette">initializeColorPalette</a></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>colorspace</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">DocumentColorSpace</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The desired colorspace: DocumentColorSpace.RGB or DocumentColorSpace.CMYK</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="cstasks.jsx.html">cstasks.jsx</a>, <a href="cstasks.jsx.html#line462">line 462</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    paletteIndex - Array in which each element is the index of a pathItem's matching color (or -1 if no match)
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">array</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="colorMatchToPalette"><span class="type-signature"></span>colorMatchToPalette<span class="signature">(color, paletteArray, colorspace)</span><span class="type-signature"> &rarr; {number}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Compares a color to a color palette (as created in <a href="global.html#initializeColorPalette">initializeColorPalette</a>) in the specified colorspace. 
+Returns the index of the matching color or -1 if no match.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>color</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">RGBColor</span>
+|
+
+<span class="param-type">CMYKColor</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Color to compare</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>paletteArray</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">array</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Color palette as created from <a href="global.html#initializeColorPalette">initializeColorPalette</a></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>colorspace</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">DocumentColorSpace</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The desired colorspace: DocumentColorSpace.RGB or DocumentColorSpace.CMYK</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="cstasks.jsx.html">cstasks.jsx</a>, <a href="cstasks.jsx.html#line430">line 430</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    index - Index of the matching color or -1 if no match
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">number</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="convertAllToColor"><span class="type-signature"></span>convertAllToColor<span class="signature">(pathItems, endColor, opcty)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    Takes an array of pathItems. Converts all pathItems in unlocked layers into endColor at the specified opacity
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>pathItems</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">pathItems</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Array of pathItems</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>endColor</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">RGBColor</span>
+|
+
+<span class="param-type">CMYKColor</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The color that you want to convert to</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>opcty</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The percent opacity (0-100)</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="cstasks.jsx.html">cstasks.jsx</a>, <a href="cstasks.jsx.html#line485">line 485</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="convertMatchedItemsToColor"><span class="type-signature"></span>convertMatchedItemsToColor<span class="signature">(pathItems, startColor, endColor, colorspace)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    Takes an array of pathItems. For each pathItem in an unlocked layer with a fill color that matches startColor, 
+converts the fill color to endColor
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>pathItems</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">pathItems</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Array of pathItems</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>startColor</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">RGBColor</span>
+|
+
+<span class="param-type">CMYKColor</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The color that you want to convert from</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>endColor</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">RGBColor</span>
+|
+
+<span class="param-type">CMYKColor</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The color that you want to convert to</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>colorspace</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">DocumentColorSpace</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The desired colorspace: DocumentColorSpace.RGB or DocumentColorSpace.CMYK</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="cstasks.jsx.html">cstasks.jsx</a>, <a href="cstasks.jsx.html#line501">line 501</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="convertToPalette"><span class="type-signature"></span>convertToPalette<span class="signature">(doc, pathItems, paletteArray, paletteIndex, colorspace)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    Given an array of pathItems, a color palette as created from <a href="global.html#initializeColorPalette">initializeColorPalette</a>, and an array that contains a reference to 
+the desired color for each pathItem, converts each pathItem to the desired color in the palette, and keeps track of colors that are not converted.
+Not really a standalone function, but enables converting an entire document from one colorspace to another.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>doc</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Document</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">document containing the items you are converting (needed to create a text frame)</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>pathItems</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">pathItems</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Array of pathItems you wish to convert</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>paletteArray</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">array</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Color palette as created from <a href="global.html#initializeColorPalette">initializeColorPalette</a></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>paletteIndex</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">RGBColor</span>
+|
+
+<span class="param-type">CMYKColor</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Array in which each element corresponds to a pathItem in the pathItems array 
+and contains the index of one of the colors from the paletteArray.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>colorspace</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">DocumentColorSpace</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The desired colorspace: DocumentColorSpace.RGB or DocumentColorSpace.CMYK</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="cstasks.jsx.html">cstasks.jsx</a>, <a href="cstasks.jsx.html#line517">line 517</a>
     </li></ul></dd>
     
 
@@ -424,7 +1648,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="CSTasks.jsx.html">CSTasks.jsx</a>, <a href="CSTasks.jsx.html#line348">line 348</a>
+        <a href="cstasks.jsx.html">cstasks.jsx</a>, <a href="cstasks.jsx.html#line348">line 348</a>
     </li></ul></dd>
     
 
@@ -447,183 +1671,6 @@
 
 
 
-
-
-
-        
-            
-
-    
-
-    <h4 class="name" id="duplicateArtboardInNewDoc"><span class="type-signature"></span>duplicateArtboardInNewDoc<span class="signature">(sourceDoc, colorspace)</span><span class="type-signature"> &rarr; {Document}</span></h4>
-
-    
-
-
-
-<div class="description">
-    Takes a source document and colorspace and creates a new document
-with the source document's units and artboards and the specified color space
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>sourceDoc</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Document</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">The source document</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>colorspace</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">DocumentColorSpace</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">The desired colorspace: DocumentColorSpace.RGB or DocumentColorSpace.CMYK</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="CSTasks.jsx.html">CSTasks.jsx</a>, <a href="CSTasks.jsx.html#line222">line 222</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    newDoc - The newly created document
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">Document</span>
-
-
-    </dd>
-</dl>
-
-    
 
 
 
@@ -779,7 +1826,184 @@ with the source document's units, a duplicate of the artboard and the specified 
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="CSTasks.jsx.html">CSTasks.jsx</a>, <a href="CSTasks.jsx.html#line205">line 205</a>
+        <a href="cstasks.jsx.html">cstasks.jsx</a>, <a href="cstasks.jsx.html#line205">line 205</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    newDoc - The newly created document
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Document</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="duplicateArtboardInNewDoc"><span class="type-signature"></span>duplicateArtboardInNewDoc<span class="signature">(sourceDoc, colorspace)</span><span class="type-signature"> &rarr; {Document}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Takes a source document and colorspace and creates a new document
+with the source document's units and artboards and the specified color space
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>sourceDoc</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Document</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The source document</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>colorspace</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">DocumentColorSpace</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The desired colorspace: DocumentColorSpace.RGB or DocumentColorSpace.CMYK</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="cstasks.jsx.html">cstasks.jsx</a>, <a href="cstasks.jsx.html#line222">line 222</a>
     </li></ul></dd>
     
 
@@ -955,7 +2179,7 @@ with the source document's units, a duplicate of the artboard and the specified 
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="CSTasks.jsx.html">CSTasks.jsx</a>, <a href="CSTasks.jsx.html#line265">line 265</a>
+        <a href="cstasks.jsx.html">cstasks.jsx</a>, <a href="cstasks.jsx.html#line265">line 265</a>
     </li></ul></dd>
     
 
@@ -1132,7 +2356,7 @@ Note that this does not necessarily preserve its position.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="CSTasks.jsx.html">CSTasks.jsx</a>, <a href="CSTasks.jsx.html#line246">line 246</a>
+        <a href="cstasks.jsx.html">cstasks.jsx</a>, <a href="cstasks.jsx.html#line246">line 246</a>
     </li></ul></dd>
     
 
@@ -1285,7 +2509,7 @@ Note that this does not necessarily preserve its position.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="CSTasks.jsx.html">CSTasks.jsx</a>, <a href="CSTasks.jsx.html#line112">line 112</a>
+        <a href="cstasks.jsx.html">cstasks.jsx</a>, <a href="cstasks.jsx.html#line112">line 112</a>
     </li></ul></dd>
     
 
@@ -1438,7 +2662,7 @@ Note that this does not necessarily preserve its position.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="CSTasks.jsx.html">CSTasks.jsx</a>, <a href="CSTasks.jsx.html#line101">line 101</a>
+        <a href="cstasks.jsx.html">cstasks.jsx</a>, <a href="cstasks.jsx.html#line101">line 101</a>
     </li></ul></dd>
     
 
@@ -1591,7 +2815,7 @@ Note that this does not necessarily preserve its position.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="CSTasks.jsx.html">CSTasks.jsx</a>, <a href="CSTasks.jsx.html#line128">line 128</a>
+        <a href="cstasks.jsx.html">cstasks.jsx</a>, <a href="cstasks.jsx.html#line128">line 128</a>
     </li></ul></dd>
     
 
@@ -1768,7 +2992,7 @@ Useful for preserving position when duplicating objects into new documents
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="CSTasks.jsx.html">CSTasks.jsx</a>, <a href="CSTasks.jsx.html#line143">line 143</a>
+        <a href="cstasks.jsx.html">cstasks.jsx</a>, <a href="cstasks.jsx.html#line143">line 143</a>
     </li></ul></dd>
     
 
@@ -1813,6 +3037,160 @@ Useful for preserving position when duplicating objects into new documents
 </dl>
 
     
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="getUniqueElements"><span class="type-signature"></span>getUniqueElements<span class="signature">(a, uniq)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    Takes an array and returns an array with the unique elements in sorted order
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>a</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">array</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Starting array</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>uniq</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">array</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Array with the sorted unique elements</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="cstasks.jsx.html">cstasks.jsx</a>, <a href="cstasks.jsx.html#line559">line 559</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1944,7 +3322,7 @@ Useful for preserving position when duplicating objects into new documents
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="CSTasks.jsx.html">CSTasks.jsx</a>, <a href="CSTasks.jsx.html#line54">line 54</a>
+        <a href="cstasks.jsx.html">cstasks.jsx</a>, <a href="cstasks.jsx.html#line54">line 54</a>
     </li></ul></dd>
     
 
@@ -1983,6 +3361,183 @@ Useful for preserving position when duplicating objects into new documents
     <dd>
         
 <span class="param-type">Group</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="initializeColorPalette"><span class="type-signature"></span>initializeColorPalette<span class="signature">(RGBArray, CMYKArray)</span><span class="type-signature"> &rarr; {array}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Takes two equal-length arrays of corresponding RGB and CMYK color values (fairly human readable)
+and returns an array of ColorElements (usable by the script for fill colors etc.)
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>RGBArray</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">array</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">A 2-dimensional array with RGB color values (range 0-255) in the form [[R,G,B], [R2,G2,B2],...] of length n</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>CMYKArray</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">array</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">A 2-dimensional array with CMYK color values (range 0-255) in the form[[C,M,Y,K],[C2,M2,Y2,K2],...] of length n</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="cstasks.jsx.html">cstasks.jsx</a>, <a href="cstasks.jsx.html#line372">line 372</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    colors - A 2-dimensional array with corresponding RGBColor and CMYKColor objects in the form [[RGBColor,CMYKColor],[RGBColor2,CMYKColor2],...] of length n
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">array</span>
 
 
     </dd>
@@ -2120,7 +3675,7 @@ Useful for preserving position when duplicating objects into new documents
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="CSTasks.jsx.html">CSTasks.jsx</a>, <a href="CSTasks.jsx.html#line186">line 186</a>
+        <a href="cstasks.jsx.html">cstasks.jsx</a>, <a href="cstasks.jsx.html#line186">line 186</a>
     </li></ul></dd>
     
 
@@ -2342,7 +3897,7 @@ Useful for preserving position when duplicating objects into new documents
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="CSTasks.jsx.html">CSTasks.jsx</a>, <a href="CSTasks.jsx.html#line286">line 286</a>
+        <a href="cstasks.jsx.html">cstasks.jsx</a>, <a href="cstasks.jsx.html#line286">line 286</a>
     </li></ul></dd>
     
 
@@ -2541,7 +4096,7 @@ Useful for preserving position when duplicating objects into new documents
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="CSTasks.jsx.html">CSTasks.jsx</a>, <a href="CSTasks.jsx.html#line307">line 307</a>
+        <a href="cstasks.jsx.html">cstasks.jsx</a>, <a href="cstasks.jsx.html#line307">line 307</a>
     </li></ul></dd>
     
 
@@ -2717,7 +4272,7 @@ Useful for preserving position when duplicating objects into new documents
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="CSTasks.jsx.html">CSTasks.jsx</a>, <a href="CSTasks.jsx.html#line36">line 36</a>
+        <a href="cstasks.jsx.html">cstasks.jsx</a>, <a href="cstasks.jsx.html#line36">line 36</a>
     </li></ul></dd>
     
 
@@ -2870,7 +4425,7 @@ Useful for preserving position when duplicating objects into new documents
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="CSTasks.jsx.html">CSTasks.jsx</a>, <a href="CSTasks.jsx.html#line22">line 22</a>
+        <a href="cstasks.jsx.html">cstasks.jsx</a>, <a href="cstasks.jsx.html#line22">line 22</a>
     </li></ul></dd>
     
 
@@ -3046,7 +4601,7 @@ Useful for preserving position when duplicating objects into new documents
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="CSTasks.jsx.html">CSTasks.jsx</a>, <a href="CSTasks.jsx.html#line330">line 330</a>
+        <a href="cstasks.jsx.html">cstasks.jsx</a>, <a href="cstasks.jsx.html#line330">line 330</a>
     </li></ul></dd>
     
 
@@ -3195,7 +4750,7 @@ Useful for preserving position when duplicating objects into new documents
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="CSTasks.jsx.html">CSTasks.jsx</a>, <a href="CSTasks.jsx.html#line171">line 171</a>
+        <a href="cstasks.jsx.html">cstasks.jsx</a>, <a href="cstasks.jsx.html#line171">line 171</a>
     </li></ul></dd>
     
 
@@ -3350,7 +4905,7 @@ is at the specified destination. Preserves relative positions of objects.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="CSTasks.jsx.html">CSTasks.jsx</a>, <a href="CSTasks.jsx.html#line156">line 156</a>
+        <a href="cstasks.jsx.html">cstasks.jsx</a>, <a href="cstasks.jsx.html#line156">line 156</a>
     </li></ul></dd>
     
 
@@ -3481,7 +5036,7 @@ is at the specified destination. Preserves relative positions of objects.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="CSTasks.jsx.html">CSTasks.jsx</a>, <a href="CSTasks.jsx.html#line70">line 70</a>
+        <a href="cstasks.jsx.html">cstasks.jsx</a>, <a href="cstasks.jsx.html#line70">line 70</a>
     </li></ul></dd>
     
 
@@ -3523,13 +5078,13 @@ is at the specified destination. Preserves relative positions of objects.
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#clearArtboard">clearArtboard</a></li><li><a href="global.html#createTextFrame">createTextFrame</a></li><li><a href="global.html#duplicateArtboardInNewDoc">duplicateArtboardInNewDoc</a></li><li><a href="global.html#duplicateDocument">duplicateDocument</a></li><li><a href="global.html#duplicateSelectionInNewDoc">duplicateSelectionInNewDoc</a></li><li><a href="global.html#getArtboardsTopLeft">getArtboardsTopLeft</a></li><li><a href="global.html#getArtboardTopLeft">getArtboardTopLeft</a></li><li><a href="global.html#getCollectionTopLeft">getCollectionTopLeft</a></li><li><a href="global.html#getOffset">getOffset</a></li><li><a href="global.html#groupSelection">groupSelection</a></li><li><a href="global.html#newDocument">newDocument</a></li><li><a href="global.html#newRect">newRect</a></li><li><a href="global.html#scaleAndExportPNG">scaleAndExportPNG</a></li><li><a href="global.html#selectContentsOnArtboard">selectContentsOnArtboard</a></li><li><a href="global.html#selectEverything">selectEverything</a></li><li><a href="global.html#setFont">setFont</a></li><li><a href="global.html#translateObjectTo">translateObjectTo</a></li><li><a href="global.html#translateSelectionTo">translateSelectionTo</a></li><li><a href="global.html#ungroupOnce">ungroupOnce</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#clearArtboard">clearArtboard</a></li><li><a href="global.html#colorMatch">colorMatch</a></li><li><a href="global.html#colorMatchItemsToPalette">colorMatchItemsToPalette</a></li><li><a href="global.html#colorMatchToPalette">colorMatchToPalette</a></li><li><a href="global.html#convertAllToColor">convertAllToColor</a></li><li><a href="global.html#convertMatchedItemsToColor">convertMatchedItemsToColor</a></li><li><a href="global.html#convertToPalette">convertToPalette</a></li><li><a href="global.html#createTextFrame">createTextFrame</a></li><li><a href="global.html#duplicateArtboardInNewDoc">duplicateArtboardInNewDoc</a></li><li><a href="global.html#duplicateDocument">duplicateDocument</a></li><li><a href="global.html#duplicateSelectionInNewDoc">duplicateSelectionInNewDoc</a></li><li><a href="global.html#getArtboardsTopLeft">getArtboardsTopLeft</a></li><li><a href="global.html#getArtboardTopLeft">getArtboardTopLeft</a></li><li><a href="global.html#getCollectionTopLeft">getCollectionTopLeft</a></li><li><a href="global.html#getOffset">getOffset</a></li><li><a href="global.html#getUniqueElements">getUniqueElements</a></li><li><a href="global.html#groupSelection">groupSelection</a></li><li><a href="global.html#initializeColorPalette">initializeColorPalette</a></li><li><a href="global.html#newDocument">newDocument</a></li><li><a href="global.html#newRect">newRect</a></li><li><a href="global.html#scaleAndExportPNG">scaleAndExportPNG</a></li><li><a href="global.html#selectContentsOnArtboard">selectContentsOnArtboard</a></li><li><a href="global.html#selectEverything">selectEverything</a></li><li><a href="global.html#setFont">setFont</a></li><li><a href="global.html#translateObjectTo">translateObjectTo</a></li><li><a href="global.html#translateSelectionTo">translateSelectionTo</a></li><li><a href="global.html#ungroupOnce">ungroupOnce</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on Wed Dec 21 2016 17:57:27 GMT-0500 (EST)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on Thu Dec 22 2016 14:29:46 GMT-0500 (EST)
 </footer>
 
 <script> prettyPrint(); </script>
